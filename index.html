@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<title>QRCodeHQ - QR Code Generator for Links</title>
+<style type="text/css">
+	 body{
+
+		background-image: url(background.jpg);
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		opacity: 0.9;
+		text-align: center;
+	}
+	h1{
+		text-align: left;
+		margin-left: 10px;
+		margin-top: 20px;
+		color: #333333;
+	}
+	legend{
+		color: #EF3F3F;
+		text-align: center;
+	}
+	script{
+		text-align: center;
+	}
+	button{
+		border-radius: 3px;
+		border-width: thin;
+		background-color: #FDB6A8;
+	}
+	a{
+		color: #333333;
+	}
+	a{
+		text-align: right;
+		margin-top: 19px;
+		font-family: "Trebuchet MS", Helvetica, sans-serif;
+	}
+	.secondary{
+		color: #FB917C; 
+		text-align: center;
+	}
+	}
+	}
+	}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+
+
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+			<big><strong><h1>QR Code Generator </h1></strong>
+		</div> 
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<button type="submit" class="btn btn-link btn-lg"><big><strong><h1><a href="about.html">About</a> </h1></strong></button>
+		</div>
+		</div>
+	</div>
+	<br></br>
+	<br></br>
+<strong><legend style="margin-left:auto; margin-right:auto;">Enter a Link to generate a QR code:</legend></strong></big><br>
+
+<center><legend  class="secondary" style = "font-family:georgia,garamond,serif;font-size:13px;font-style:italic;">Example: https://www.youtube.com/</legend></center><br>
+
+<input id="text" type="text" value="" style="width:30%" /><br/>
+<button type="submit" class="btn btn-danger btn-lg" onclick="revealMessage();" ><strong>Generate</strong></button>
+<div id="qrcode" style="width:220px; height:220px; margin-top:15px; margin-left:auto; margin-right:auto; display:none"></div>
+
+<script type="text/javascript">
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+	width : 220,
+	height : 220
+
+});
+function revealMessage(){
+	document.getElementById("qrcode").style.display = "block";
+}
+
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+	
+	qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
+</script>
+
+</body>
+</html>
