@@ -75,7 +75,7 @@
 <input id="text" type="text" value="" style="width:30%" /><br/>
 <button type="submit" class="btn btn-danger btn-lg" onclick="revealMessage();" ><strong>Generate</strong></button>
 <div id="qrcode" style="width:220px; height:220px; margin-top:15px; margin-left:auto; margin-right:auto; display:none"></div>
-
+<div id="message" style="display:none"><h2>Scan Here</h2></div>
 <script type="text/javascript">
 var qrcode = new QRCode(document.getElementById("qrcode"), {
 	width : 220,
@@ -84,6 +84,7 @@ var qrcode = new QRCode(document.getElementById("qrcode"), {
 });
 function revealMessage(){
 	document.getElementById("qrcode").style.display = "block";
+	document.getElementById("message").style.display = "block";
 }
 
 function makeCode () {		
